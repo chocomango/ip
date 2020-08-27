@@ -13,8 +13,8 @@ public class Duke {
         }
     }
 
-	//add new task to tasks
-	public static void addTask(String description) {
+    //add new task to tasks
+    public static void addTask(String description) {
         tasks[taskCount++] = new Task(description);
         System.out.println("Got it: " + description);
     }
@@ -22,17 +22,16 @@ public class Duke {
     //set task to be completed
     public static void completeTask(int index) {
         index--;
-        if (index >= 0 && index < taskCount) {
+        if (index < 1 || index > taskCount) {
+	    System.out.println("You never said this.");
+        } else {
             tasks[index].setStatus(true);
             System.out.println("Getting rid of this:" + "\n\t" + tasks[index].toString());
-        } else {
-            System.out.println("You never said this.");
         }
     }
 
     public static void main(String[] args) {
-        String logo =
-                 "   ....,       ,....\n"
+        String logo = "   ....,       ,....\n"
                 +" .' ,,, '.   .' ,,, '.\n"
                 +"  .`   `.     .`   `.\n"
                 +" : ..... :   : ..... :\n"
@@ -47,19 +46,17 @@ public class Duke {
         System.out.println(logo);
         System.out.println("What can I do for you?\n");
         Scanner in = new Scanner(System.in);
-
         String input = in.nextLine().trim();
-		//Regex to find done command
-		String regExp = "^done \\d$";
+	//Regex to find done command
+	String regExp = "^done \\d$";
         Pattern pattern = Pattern.compile(regExp);
-
         while (!input.equals("bye")) {
             if ("list".equals(input)) {
                 printTasks();
             } else if(pattern.matcher(input).find()){
-			    int selectIndex = Integer.parseInt(input.substring(input.indexOf(' ') + 1));
-				completeTask(selectIndex);
-			} else {
+                int selectIndex = Integer.parseInt(input.substring(input.indexOf(' ') + 1));
+                completeTask(selectIndex);
+            } else {
                 addTask(input);
             }
             input = in.nextLine().trim();
