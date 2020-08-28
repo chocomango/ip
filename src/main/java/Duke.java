@@ -16,17 +16,17 @@ public class Duke {
     //add new task to tasks
     public static void addTask(String description) {
         tasks[taskCount++] = new Task(description);
-        System.out.println("Got it: " + description);
+        System.out.println("Got it. " + description);
     }
 
     //set task to be completed
     public static void completeTask(int index) {
-        index--;
         if (index < 1 || index > taskCount) {
 	    System.out.println("You never said this.");
         } else {
-            tasks[index].setStatus(true);
-            System.out.println("Getting rid of this:" + "\n\t" + tasks[index].toString());
+            tasks[--index].setStatus(true);
+            System.out.println("Forget about this..." + "\n\t"
+                    + tasks[index].toString());
         }
     }
 
@@ -47,16 +47,16 @@ public class Duke {
         System.out.println("What can I do for you?\n");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine().trim();
-	//Regex to find done command
-	String regExp = "^done \\d$";
+	    //Regex to find done command followed by a positive integer
+	    String regExp = "^done \\d$";
         Pattern pattern = Pattern.compile(regExp);
         while (!input.equals("bye")) {
-            if ("list".equals(input)) {
+            if ("list".equals(input)) {//list command
                 printTasks();
-            } else if(pattern.matcher(input).find()){
+            } else if(pattern.matcher(input).find()){//done command
                 int selectIndex = Integer.parseInt(input.substring(input.indexOf(' ') + 1));
                 completeTask(selectIndex);
-            } else {
+            } else {//no command: add task
                 addTask(input);
             }
             input = in.nextLine().trim();
