@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.regex.*;
+import java.util.regex.Pattern;
 
 public class Duke {
     private static Task[] tasks = new Task[100];
@@ -7,9 +7,13 @@ public class Duke {
 
     //prints all the stored text from user input
     public static void printTasks() {
-        System.out.println("You said so much:");
-        for (int i = 0; i < taskCount; i++) {
-            System.out.printf("%d. %s%n", i+1, tasks[i]);
+        if(taskCount == 0){
+            System.out.println("You said nothing.");
+        }else {
+            System.out.println("You said so much:");
+            for (int i = 0; i < taskCount; i++) {
+                System.out.printf("%d. %s%n", i + 1, tasks[i]);
+            }
         }
     }
 
