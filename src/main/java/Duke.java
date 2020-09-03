@@ -95,22 +95,26 @@ public class Duke {
         if (tasks[taskCount] != null) {
             System.out.println("Got it. " + tasks[taskCount++]);
             System.out.println("You have " + taskCount + " items.");
-        } else {
-            System.out.println("Wrong format. Try again.");
         }
     }
 
     private static Todo createTodo(String description) {
+        if(description.isEmpty()){
+            System.out.println("Do what? Try again.");
+            return null;
+        }
         return new Todo(description);
     }
 
     private static Deadline createDeadline(String arguments) {
         if (arguments.isEmpty()) {
+            System.out.println("Deadline for? Try again.");
             return null;
         }
         final String prefix = "/by";
         final String[] splitArgs = arguments.split(prefix);
         if (splitArgs.length != 2) {
+            System.out.println("By when? Try again.");
             return null;
         }
         String description = splitArgs[0].trim();
@@ -120,11 +124,13 @@ public class Duke {
 
     private static Event createEvent(String arguments) {
         if (arguments.isEmpty()) {
+            System.out.println("What event? Try again.");
             return null;
         }
         final String prefix = "/at";
         final String[] splitArgs = arguments.split(prefix);
         if (splitArgs.length != 2) {
+            System.out.println("Event at? Try again.");
             return null;
         }
         String description = splitArgs[0].trim();
@@ -152,9 +158,13 @@ public class Duke {
             if (index < 1 || index > taskCount) {
                 System.out.println("You never said this.");
             } else {
-                tasks[--index].setStatus(true);
-                System.out.println("Forget about this..." + "\n\t"
-                        + tasks[index].toString());
+                if(tasks[--index].getStatus()){//task already done
+                    System.out.println("You did this before already...");
+                }else {
+                    tasks[index].setStatus(true);
+                    System.out.println("Okay. " + ""
+                            + tasks[index].toString() + " completed.");
+                }
             }
         }
     }
