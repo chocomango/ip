@@ -22,51 +22,48 @@ You said so much:
 You have 1 items.
 Got it. [D][?] return book (by: Sunday)
 You have 2 items.
-Got it. [E][?] project meeting (by: Mon 2-4pm)
+Got it. [E][?] project meeting (at: Mon 2-4pm)
 You have 3 items.
 You said so much:
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
-3. [E][?] project meeting (by: Mon 2-4pm)
+3. [E][?] project meeting (at: Mon 2-4pm)
 You have 3 items.
-Wrong format. Try again.
+By when? Try again.
 You said so much:
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
-3. [E][?] project meeting (by: Mon 2-4pm)
+3. [E][?] project meeting (at: Mon 2-4pm)
 You have 3 items.
 Got it. [D][?] do homework (by: no idea :-p)
 You have 4 items.
 You said so much:
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
-3. [E][?] project meeting (by: Mon 2-4pm)
+3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 You have 4 items.
-Forget about this...
-	[D][?] return book (by: Sunday)
-Forget about this...
-	[E][?] project meeting (by: Mon 2-4pm)
+Okay. [D][?] return book (by: Sunday) completed.
+Okay. [E][?] project meeting (at: Mon 2-4pm) completed.
 You said so much:
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
-3. [E][?] project meeting (by: Mon 2-4pm)
+3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 You have 4 items.
-Forget about this...
-	[D][?] do homework (by: no idea :-p)
+Okay. [D][?] do homework (by: no idea :-p) completed.
 Wrong command. Try again.
 You said so much:
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
-3. [E][?] project meeting (by: Mon 2-4pm)
+3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 You have 4 items.
 You never said this.
 You said so much:
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
-3. [E][?] project meeting (by: Mon 2-4pm)
+3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 You have 4 items.
 Got it. [T][?] borrow book 
@@ -74,7 +71,7 @@ You have 5 items.
 You said so much:
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
-3. [E][?] project meeting (by: Mon 2-4pm)
+3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 5. [T][?] borrow book 
 You have 5 items.
