@@ -1,7 +1,81 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+   ....,       ,....
+ .' ,,, '.   .' ,,, '.
+  .`   `.     .`   `.
+ : ..... :   : ..... :
+ :`~'-'-`:   :`-'-'~`:
+  `.~-`.'     `.~`'.'
+    ```   ___   ```
+        ( . . )
 
+         .._..
+       .'     '.
+      `.~~~~~~~.`
+        `-...-`
+
+What do you want?
+
+You have yet to say anything.
+Got it. [T][?] borrow book 
+You have 1 items.
+You said so much:
+1. [T][?] borrow book 
+You have 1 items.
+Got it. [D][?] return book (by: Sunday)
+You have 2 items.
+Got it. [E][?] project meeting (by: Mon 2-4pm)
+You have 3 items.
+You said so much:
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (by: Mon 2-4pm)
+You have 3 items.
+Wrong format. Try again.
+You said so much:
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (by: Mon 2-4pm)
+You have 3 items.
+Got it. [D][?] do homework (by: no idea :-p)
+You have 4 items.
+You said so much:
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (by: Mon 2-4pm)
+4. [D][?] do homework (by: no idea :-p)
+You have 4 items.
+Forget about this...
+	[D][?] return book (by: Sunday)
+Forget about this...
+	[E][?] project meeting (by: Mon 2-4pm)
+You said so much:
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (by: Mon 2-4pm)
+4. [D][?] do homework (by: no idea :-p)
+You have 4 items.
+Forget about this...
+	[D][?] do homework (by: no idea :-p)
+Wrong command. Try again.
+You said so much:
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (by: Mon 2-4pm)
+4. [D][?] do homework (by: no idea :-p)
+You have 4 items.
+You never said this.
+You said so much:
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (by: Mon 2-4pm)
+4. [D][?] do homework (by: no idea :-p)
+You have 4 items.
+Got it. [T][?] borrow book 
+You have 5 items.
+You said so much:
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (by: Mon 2-4pm)
+4. [D][?] do homework (by: no idea :-p)
+5. [T][?] borrow book 
+You have 5 items.
+Until Next Time...
