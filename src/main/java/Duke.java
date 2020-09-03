@@ -5,36 +5,12 @@ public class Duke {
     private static Task[] tasks = new Task[100];
     private static int taskCount = 0;
 
-    //prints all the stored text from user input
-    public static void printTasks() {
-        if(taskCount == 0){
-            System.out.println("You said nothing.");
-        }else {
-            System.out.println("You said so much:");
-            for (int i = 0; i < taskCount; i++) {
-                System.out.printf("%d. %s%n", i + 1, tasks[i]);
-            }
-        }
-    }
-
-    //add new task to tasks
-    public static void addTask(String description) {
-        tasks[taskCount++] = new Task(description);
-        System.out.println("Got it. " + description);
-    }
-
-    //set task to be completed
-    public static void completeTask(int index) {
-        if (index < 1 || index > taskCount) {
-	    System.out.println("You never said this.");
-        } else {
-            tasks[--index].setStatus(true);
-            System.out.println("Forget about this..." + "\n\t"
-                    + tasks[index].toString());
-        }
-    }
-
     public static void main(String[] args) {
+        printWelcomeScreen();
+        runInstructions();
+    }
+
+    private static void printWelcomeScreen() {
         String logo = "   ....,       ,....\n"
                 +" .' ,,, '.   .' ,,, '.\n"
                 +"  .`   `.     .`   `.\n"
@@ -48,23 +24,138 @@ public class Duke {
                 +"      `.~~~~~~~.`\n"
                 +"        `-...-`\n";
         System.out.println(logo);
-        System.out.println("What can I do for you?\n");
-        Scanner in = new Scanner(System.in);
+        System.out.println("What do you want?\n");
+    }
+
+    private static void runInstructions() {
+        final Scanner in = new Scanner(System.in);
         String input = in.nextLine().trim();
-	    //Regex to find done command followed by a positive integer
-	    String regExp = "^done \\d$";
-        Pattern pattern = Pattern.compile(regExp);
-        while (!input.equals("bye")) {
-            if ("list".equals(input)) {//list command
+        while (input.isEmpty()) {
+            input = in.nextLine().trim();
+        }
+        while (true) {
+            final String[] inputs = input.split("\\s+",2);
+            final String[] split = inputs.length == 2 ? inputs : new String[]{inputs[0], ""};
+            final String command = split[0];
+            final String arguments = split[1];
+
+            switch (command) {
+            case "list":
                 printTasks();
-            } else if(pattern.matcher(input).find()){//done command
-                int selectIndex = Integer.parseInt(input.substring(input.indexOf(' ') + 1));
-                completeTask(selectIndex);
-            } else {//no command: add task
-                addTask(input);
+                break;
+            case "done":
+                completeTask(arguments);
+                break;
+            case "todo":
+                addTask(Task.Type.TODO, arguments);
+                break;
+            case "deadline":
+                addTask(Task.Type.DEADLINE, arguments);
+                break;
+            case "event":
+                addTask(Task.Type.EVENT, arguments);
+                break;
+            case "bye":
+                System.out.println("Until Next Time...");
+                System.exit(0);
+                // Fallthrough
+            default:
+                System.out.println("Wrong command. Try again.");
+                break;
             }
             input = in.nextLine().trim();
         }
-        System.out.println("Until Next Time...");
+    }
+    //prints all the stored text from user input
+    private static void printTasks() {
+        if(taskCount == 0){
+            System.out.println("You have yet to say anything.");
+        }else {
+            System.out.println("You said so much:");
+            for (int i = 0; i < taskCount; i++) {
+                System.out.printf("%d. %s%n", i + 1, tasks[i]);
+            }
+            System.out.println("You have " + taskCount + " items.");
+        }
+    }
+
+    //add new task to tasks
+    private static void addTask(Task.Type type, String arguments) {
+        switch (type) {
+        case DEADLINE:
+            tasks[taskCount] = createDeadline(arguments);
+            break;
+        case TODO:
+            tasks[taskCount] = createTodo(arguments);
+            break;
+        case EVENT:
+            tasks[taskCount] = createEvent(arguments);
+            break;
+        }
+        if (tasks[taskCount] != null) {
+            System.out.println("Got it. " + tasks[taskCount++]);
+            System.out.println("You have " + taskCount + " items.");
+        } else {
+            System.out.println("Wrong format. Try again.");
+        }
+    }
+
+    private static Todo createTodo(String description) {
+        return new Todo(description);
+    }
+
+    private static Deadline createDeadline(String arguments) {
+        if (arguments.isEmpty()) {
+            return null;
+        }
+        final String prefix = "/by";
+        final String[] splitArgs = arguments.split(prefix);
+        if (splitArgs.length != 2) {
+            return null;
+        }
+        String description = splitArgs[0].trim();
+        String by = splitArgs[1].trim();
+        return new Deadline(description, by);
+    }
+
+    private static Event createEvent(String arguments) {
+        if (arguments.isEmpty()) {
+            return null;
+        }
+        final String prefix = "/at";
+        final String[] splitArgs = arguments.split(prefix);
+        if (splitArgs.length != 2) {
+            return null;
+        }
+        String description = splitArgs[0].trim();
+        String at = splitArgs[1].trim();
+        return new Event(description, at);
+    }
+
+    //set task to be completed
+    private static void completeTask(String inputString) {
+        if(taskCount == 0){
+            System.out.println("You have yet to say anything.");
+        }else{
+            int index;
+            if (inputString.isEmpty()) {
+                System.out.println("Which one? Try again.");
+                return;
+            }
+            try {
+                index = Integer.parseInt(inputString);
+            } catch (NumberFormatException nfe) {
+                System.out.println("You chose the wrong one. Try again.");
+                return;
+            }
+
+            if (index < 1 || index > taskCount) {
+                System.out.println("You never said this.");
+            } else {
+                tasks[--index].setStatus(true);
+                System.out.println("Forget about this..." + "\n\t"
+                        + tasks[index].toString());
+            }
+        }
     }
 }

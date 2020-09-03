@@ -2,6 +2,12 @@ public class Task {
     private String description;
     private boolean isDone;
 
+    public enum Type {
+        TODO,
+        DEADLINE,
+        EVENT
+    }
+
     //overloaded constructor
     public Task(String description) {
         this(description, false);
