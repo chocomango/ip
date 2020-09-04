@@ -34,10 +34,10 @@ public class Duke {
             input = in.nextLine().trim();
         }
         while (true) {
-            final String[] inputs = input.split("\\s+",2);
-            final String[] split = inputs.length == 2 ? inputs : new String[]{inputs[0], ""};
-            final String command = split[0];
-            final String arguments = split[1];
+            String[] inputs = input.split("\\s+",2);
+            String[] splits = inputs.length == 2 ? inputs : new String[]{inputs[0], ""};
+            String command = splits[0];
+            String arguments = splits[1];
 
             switch (command) {
             case "list":
@@ -112,7 +112,7 @@ public class Duke {
             return null;
         }
         final String prefix = "/by";
-        final String[] splitArgs = arguments.split(prefix);
+        String[] splitArgs = arguments.split(prefix);
         if (splitArgs.length != 2) {
             System.out.println("By when? Try again.");
             return null;
