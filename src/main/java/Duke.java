@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Duke {
     private static Task[] tasks = new Task[100];
@@ -28,7 +27,7 @@ public class Duke {
     }
 
     private static void runInstructions() {
-        final Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         String input = in.nextLine().trim();
         while (input.isEmpty()) {
             input = in.nextLine().trim();
@@ -111,8 +110,8 @@ public class Duke {
             System.out.println("Deadline for? Try again.");
             return null;
         }
-        final String prefix = "/by";
-        String[] splitArgs = arguments.split(prefix);
+        final String PREFIX = "/by";
+        String[] splitArgs = arguments.split(PREFIX);
         if (splitArgs.length != 2) {
             System.out.println("By when? Try again.");
             return null;
@@ -127,8 +126,8 @@ public class Duke {
             System.out.println("What event? Try again.");
             return null;
         }
-        final String prefix = "/at";
-        final String[] splitArgs = arguments.split(prefix);
+        final String PREFIX = "/at";
+        String[] splitArgs = arguments.split(PREFIX);
         if (splitArgs.length != 2) {
             System.out.println("Event at? Try again.");
             return null;
