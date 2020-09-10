@@ -1,3 +1,8 @@
+import duke.task.Deadline;
+import duke.task.Event;
+import duke.task.Task;
+import duke.task.Todo;
+
 import java.util.Scanner;
 
 public class Duke {
@@ -107,7 +112,7 @@ public class Duke {
 
     private static Deadline createDeadline(String arguments) {
         if (arguments.isEmpty()) {
-            System.out.println("Deadline for? Try again.");
+            System.out.println("duke.task.Deadline for? Try again.");
             return null;
         }
         final String PREFIX = "/by";
@@ -129,7 +134,7 @@ public class Duke {
         final String PREFIX = "/at";
         String[] splitArgs = arguments.split(PREFIX);
         if (splitArgs.length != 2) {
-            System.out.println("Event at? Try again.");
+            System.out.println("duke.task.Event at? Try again.");
             return null;
         }
         String description = splitArgs[0].trim();
