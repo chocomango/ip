@@ -67,9 +67,9 @@ public class Duke {
     }
     //prints all the stored text from user input
     private static void printTasks() {
-        if(taskCount == 0){
+        if (taskCount == 0) {
             System.out.println("You have yet to say anything.");
-        }else {
+        } else {
             System.out.println("You said so much:");
             for (int i = 0; i < taskCount; i++) {
                 System.out.printf("%d. %s%n", i + 1, tasks[i]);
@@ -98,7 +98,7 @@ public class Duke {
     }
 
     private static Todo createTodo(String description) {
-        if(description.isEmpty()){
+        if (description.isEmpty()) {
             System.out.println("Do what? Try again.");
             return null;
         }
@@ -139,9 +139,9 @@ public class Duke {
 
     //set task to be completed
     private static void completeTask(String inputString) {
-        if(taskCount == 0){
+        if (taskCount == 0) {
             System.out.println("You have yet to say anything.");
-        }else{
+        } else {
             int index;
             if (inputString.isEmpty()) {
                 System.out.println("Which one? Try again.");
@@ -157,9 +157,9 @@ public class Duke {
             if (index < 1 || index > taskCount) {
                 System.out.println("You never said this.");
             } else {
-                if(tasks[--index].getStatus()){//task already done
+                if (tasks[--index].getStatus()) {
                     System.out.println("You did this before already...");
-                }else {
+                } else {
                     tasks[index].setStatus(true);
                     System.out.println("Okay. " + ""
                             + tasks[index].toString() + " completed.");
