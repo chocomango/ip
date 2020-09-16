@@ -2,9 +2,14 @@ import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.Todo;
-import java.util.ArrayList;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static duke.task.Task.Type.*;
@@ -32,7 +37,6 @@ public class Duke {
                 +"      `.~~~~~~~.`\n"
                 +"        `-...-`\n";
         System.out.println(logo);
-        System.out.println("What do you want?\n");
     }
 
     private static void runInstructions() {
