@@ -12,67 +12,160 @@
       `.~~~~~~~.`
         `-...-`
 
+Remembered 5 items from the past.
 What do you want?
+Memory cleared.
 
+What do you want?
 You have yet to say anything.
+
+What do you want?
 Got it. [T][?] borrow book 
 You have 1 items.
-You said so much:
+
+What do you want?
+Here you go...
 1. [T][?] borrow book 
 You have 1 items.
+
+What do you want?
 Got it. [D][?] return book (by: Sunday)
 You have 2 items.
+
+What do you want?
 Got it. [E][?] project meeting (at: Mon 2-4pm)
 You have 3 items.
-You said so much:
+
+What do you want?
+Here you go...
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
 3. [E][?] project meeting (at: Mon 2-4pm)
 You have 3 items.
+
+What do you want?
 By when? Try again.
-You said so much:
+
+What do you want?
+Here you go...
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
 3. [E][?] project meeting (at: Mon 2-4pm)
 You have 3 items.
+
+What do you want?
 Got it. [D][?] do homework (by: no idea :-p)
 You have 4 items.
-You said so much:
+
+What do you want?
+Here you go...
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
 3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 You have 4 items.
-Okay. [D][?] return book (by: Sunday) completed.
-Okay. [E][?] project meeting (at: Mon 2-4pm) completed.
-You said so much:
-1. [T][?] borrow book 
-2. [D][?] return book (by: Sunday)
-3. [E][?] project meeting (at: Mon 2-4pm)
-4. [D][?] do homework (by: no idea :-p)
-You have 4 items.
-Okay. [D][?] do homework (by: no idea :-p) completed.
+
+What do you want?
 Wrong command. Try again.
-You said so much:
+
+What do you want?
+Here you go...
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
 3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 You have 4 items.
-You never said this.
-You said so much:
+
+What do you want?
+You need to tell me more. Try again.
+
+What do you want?
+Here you go...
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
 3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 You have 4 items.
+
+What do you want?
+Okay. [T][?] borrow book  completed.
+
+What do you want?
+Here you go...
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (at: Mon 2-4pm)
+4. [D][?] do homework (by: no idea :-p)
+You have 4 items.
+
+What do you want?
+Can't find that in my memory. Try again.
+
+What do you want?
+Here you go...
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [E][?] project meeting (at: Mon 2-4pm)
+4. [D][?] do homework (by: no idea :-p)
+You have 4 items.
+
+What do you want?
 Got it. [T][?] borrow book 
 You have 5 items.
-You said so much:
+
+What do you want?
+Here you go...
 1. [T][?] borrow book 
 2. [D][?] return book (by: Sunday)
 3. [E][?] project meeting (at: Mon 2-4pm)
 4. [D][?] do homework (by: no idea :-p)
 5. [T][?] borrow book 
 You have 5 items.
+
+What do you want?
+Okay. [E][?] project meeting (at: Mon 2-4pm) deleted.
+
+What do you want?
+Here you go...
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [D][?] do homework (by: no idea :-p)
+4. [T][?] borrow book 
+You have 4 items.
+
+What do you want?
+Got it. [D][?] go home (by: 2359)
+You have 5 items.
+
+What do you want?
+Here you go...
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [D][?] do homework (by: no idea :-p)
+4. [T][?] borrow book 
+5. [D][?] go home (by: 2359)
+You have 5 items.
+
+What do you want?
+You never said this.
+
+What do you want?
+Here you go...
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [D][?] do homework (by: no idea :-p)
+4. [T][?] borrow book 
+5. [D][?] go home (by: 2359)
+You have 5 items.
+
+What do you want?
+Here you go...
+1. [T][?] borrow book 
+2. [D][?] return book (by: Sunday)
+3. [D][?] do homework (by: no idea :-p)
+4. [T][?] borrow book 
+5. [D][?] go home (by: 2359)
+You have 5 items.
+
+What do you want?
 Until Next Time...

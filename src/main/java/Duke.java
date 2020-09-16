@@ -56,6 +56,10 @@ public class Duke {
             case "list":
                 printTasks();
                 break;
+            case "clear":
+                tasks.clear();
+                System.out.println("Memory cleared.");
+                break;
             case "done":
                 completeTask(arguments);
                 updateLocalFile();
@@ -302,7 +306,7 @@ public class Duke {
         }
 
         if (index < 1 || index > tasks.size()) {
-            System.out.println("You never said this.");
+            System.out.println("Can't find that in my memory. Try again.");
             return;
         }
 

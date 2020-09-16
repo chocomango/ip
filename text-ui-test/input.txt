@@ -1,21 +1,29 @@
+clear
 list
 todo borrow book
 list
 deadline return book /by Sunday
 event project meeting /at Mon 2-4pm
 list
-deadline /at wrong input
+deadline home/at wrong input
 list
 deadline do homework /by no idea :-p
 list
-done 2
-done 3
+asdasv
 list
-done 4
-wrong
+event /at noname
+list
+done 1
 list
 done 69
 list
 todo borrow book
+list
+delete 3
+list
+deadline go home /by 2359
+list
+delete 123
+list
 list
 bye
