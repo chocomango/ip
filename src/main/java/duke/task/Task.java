@@ -1,6 +1,6 @@
 package duke.task;
 
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isDone;
 
@@ -46,9 +46,7 @@ public class Task {
         return (isDone ? "\u2713" : "\u2718");
     }
 
-    public Type getType(){
-        return Task.Type.TODO;
-    }
+    public abstract Type getType();
 
     //returns confirmed status of task
     public String toString() {
