@@ -9,6 +9,12 @@ public class Todo extends Task {
     public Todo(String description, boolean isDone) {
         super(description, isDone);
     }
+
+    @Override
+    public Type getType(){
+        return Task.Type.TODO;
+    }
+
     @Override
     public String toString() {
         return String.format("[T]%s ", super.toString());

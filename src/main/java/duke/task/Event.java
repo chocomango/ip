@@ -21,6 +21,11 @@ public class Event extends Task {
     }
 
     @Override
+    public Type getType(){
+        return Type.EVENT;
+    }
+
+    @Override
     public String toString() {
         return String.format("[E]%s (at: %s)", super.toString(), at);
     }

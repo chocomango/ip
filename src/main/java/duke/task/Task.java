@@ -46,6 +46,10 @@ public class Task {
         return (isDone ? "\u2713" : "\u2718");
     }
 
+    public Type getType(){
+        return Task.Type.TODO;
+    }
+
     //returns confirmed status of task
     public String toString() {
         return String.format("[%s] %s", getStatusIcon(), getDescription());

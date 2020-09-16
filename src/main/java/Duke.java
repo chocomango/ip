@@ -3,14 +3,18 @@ import duke.task.Event;
 import duke.task.Task;
 import duke.task.Todo;
 
+import java.io.*;
 import java.util.Scanner;
 
+import static duke.task.Task.Type.*;
+
 public class Duke {
-    private static Task[] tasks = new Task[100];
+    private final static Task[] tasks = new Task[100];
     private static int taskCount = 0;
 
     public static void main(String[] args) {
         printWelcomeScreen();
+        loadLocalFile();
         runInstructions();
     }
 
@@ -28,11 +32,11 @@ public class Duke {
                 +"      `.~~~~~~~.`\n"
                 +"        `-...-`\n";
         System.out.println(logo);
-        System.out.println("What do you want?\n");
     }
 
     private static void runInstructions() {
         Scanner in = new Scanner(System.in);
+        System.out.println("What do you want?");
         String input = in.nextLine().trim();
         while (input.isEmpty()) {
             input = in.nextLine().trim();
@@ -49,15 +53,19 @@ public class Duke {
                 break;
             case "done":
                 completeTask(arguments);
+                updateLocalFile();
                 break;
             case "todo":
-                addTask(Task.Type.TODO, arguments);
+                addTask(TODO, arguments);
+                updateLocalFile();
                 break;
             case "deadline":
-                addTask(Task.Type.DEADLINE, arguments);
+                addTask(DEADLINE, arguments);
+                updateLocalFile();
                 break;
             case "event":
-                addTask(Task.Type.EVENT, arguments);
+                addTask(EVENT, arguments);
+                updateLocalFile();
                 break;
             case "bye":
                 System.out.println("Until Next Time...");
@@ -67,9 +75,69 @@ public class Duke {
                 System.out.println("Wrong command. Try again.");
                 break;
             }
+
+            System.out.println("\nWhat do you want?");
             input = in.nextLine().trim();
         }
     }
+
+    //Reads the local file if exists.
+    private static void loadLocalFile() {
+        String directoryPath = System.getProperty("user.dir") + File.separator + "data";
+        String fileName = "duke.txt";
+        String filePath = directoryPath + File.separator + fileName;
+        File file = new File(filePath);
+
+        if(!file.exists()){
+            return;
+        }
+
+        BufferedReader fileReader;
+        try {
+            fileReader = new BufferedReader(new FileReader(filePath));
+            String line = fileReader.readLine();
+            while(line != null) {
+                loadTask(line);
+                line = fileReader.readLine();
+            }
+            fileReader.close();
+        } catch (IOException e) {
+            // Exception handling
+            System.out.println("Something went wrong with my local memory.");
+        }
+        if(taskCount!=0){
+            System.out.println("Remembered " + taskCount + " items from the past.");
+        }
+    }
+
+    //load each individual task to current Tasks ArrayList
+    private static void loadTask(String line){
+        final String PREFIX = "\\|";
+        String[] splitLine = line.split(PREFIX);
+        Task.Type taskType = Task.Type.valueOf(splitLine[0]);
+        String description = splitLine[2].trim();
+        boolean status = Boolean.parseBoolean(splitLine[1]);
+
+        switch(taskType){
+            case TODO:
+                tasks[taskCount] = new Todo(description);
+                tasks[taskCount++].setStatus(status);
+                break;
+            case EVENT:
+                String by = splitLine[3];
+                tasks[taskCount] = new Deadline(description, by);
+                tasks[taskCount++].setStatus(status);
+                break;
+            case DEADLINE:
+                String at = splitLine[3];
+                tasks[taskCount] = new Event(description, at);
+                tasks[taskCount++].setStatus(status);
+                break;
+            default:
+                break;
+        }
+    }
+
     //prints all the stored text from user input
     private static void printTasks() {
         if (taskCount == 0) {
@@ -102,6 +170,59 @@ public class Duke {
         }
     }
 
+    //Write current Tasks ArrayList into local file
+    private static void updateLocalFile() {
+        String directoryPath = System.getProperty("user.dir") + File.separator + "data";
+        String fileName = "duke.txt";
+        String filePath = directoryPath + File.separator + fileName;
+
+        //create if local file/directory do not exist
+        File directory = new File(directoryPath);
+        boolean isDirectoryCreated = directory.exists();
+        if (!isDirectoryCreated) {
+            isDirectoryCreated = directory.mkdir();
+        }
+        if (!isDirectoryCreated) {
+            System.out.println("Something went wrong with the path to my local memory.");
+            return;
+        }
+        File file = new File(filePath);
+
+        String fileContent = "";
+        for (int i = 0; i < taskCount; i++) {
+            Task current = tasks[i];
+            switch(current.getType()){
+            case TODO:
+                fileContent = fileContent.concat(TODO + "|"
+                        + current.getStatus() + "|"
+                        + current.getDescription()
+                        + System.lineSeparator());
+                break;
+            case EVENT:
+                fileContent = fileContent.concat(EVENT + "|"
+                        + current.getStatus() + "|"
+                        + current.getDescription() + "|"
+                        + ((Event) current).getAt()
+                        + System.lineSeparator());
+                break;
+            case DEADLINE:
+                fileContent = fileContent.concat(DEADLINE + "|"
+                        + current.getStatus() + "|"
+                        + current.getDescription() + "|"
+                        + ((Deadline) current).getBy()
+                        + System.lineSeparator());
+                break;
+            }
+        }
+        try(FileWriter fileWriter = new FileWriter(filePath)) {
+            fileWriter.write(fileContent);
+        } catch (IOException e) {
+            // Exception handling
+            System.out.println("Something went wrong with my local memory.");
+        }
+    }
+
+
     private static Todo createTodo(String description) {
         if (description.isEmpty()) {
             System.out.println("Do what? Try again.");
@@ -112,7 +233,7 @@ public class Duke {
 
     private static Deadline createDeadline(String arguments) {
         if (arguments.isEmpty()) {
-            System.out.println("duke.task.Deadline for? Try again.");
+            System.out.println("Deadline for? Try again.");
             return null;
         }
         final String PREFIX = "/by";
@@ -134,7 +255,7 @@ public class Duke {
         final String PREFIX = "/at";
         String[] splitArgs = arguments.split(PREFIX);
         if (splitArgs.length != 2) {
-            System.out.println("duke.task.Event at? Try again.");
+            System.out.println("Event at? Try again.");
             return null;
         }
         String description = splitArgs[0].trim();
