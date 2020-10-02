@@ -24,6 +24,7 @@ public class Messages {
     public static final String MESSAGE_GOODBYE = "Until next time...";
     public static final String MESSAGE_CLEAR_MEMORY = "Memory cleared.";
     public static final String MESSAGE_LIST_TASK = "Here you go...";
+    public static final String MESSAGE_SEARCH_HEADER = "Here are the matching tasks in your list:";
 
     //Err
     public static final String ERROR_CREATE_LOCAL = "There is nowhere to store my memory.";
@@ -32,6 +33,7 @@ public class Messages {
     public static final String ERROR_INVALID_USAGE = "Invalid usage of command.";
     public static final String ERROR_OUT_OF_RANGE_INPUT = "No such data. Narrow down your range.";
     public static final String ERROR_TASK_ALREADY_DONE = "This task is already done";
+
 
     //Usage
     public static final String[] USAGE = {
@@ -42,6 +44,7 @@ public class Messages {
             "DELETE usage: ...",
             "TODO usage: ...",
             "DEADLINE usage: ...",
-            "EVENT usage: ..."
+            "EVENT usage: ...",
+            "FIND usage: ..."
     };
 }
