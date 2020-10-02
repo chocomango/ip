@@ -41,7 +41,7 @@ public class TextUi {
     }
     public void showHelpMessage(Command.CommandType type){
         switch(type){
-        case ALL:
+        case HELP:
             showToUser(Messages.USAGE);
             break;
         case LIST:
@@ -67,6 +67,9 @@ public class TextUi {
             break;
         case EVENT:
             showToUser(Messages.USAGE[7]);
+            break;
+        case FIND:
+            showToUser(Messages.USAGE[8]);
             break;
         }
     }

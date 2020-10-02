@@ -49,6 +49,8 @@ public class Parser {
             return new CreateTaskCommand(type,arguments);
         case HELP:
             return new HelpCommand();
+        case FIND:
+            return new FindCommand(arguments);
         }
 
         return new InvalidCommand();

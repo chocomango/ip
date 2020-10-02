@@ -12,7 +12,7 @@ public class HelpCommand extends Command{
     }
 
     public boolean execute(TaskList tasks, TextUi ui){
-        ui.showHelpMessage(Command.CommandType.ALL);
+        ui.showHelpMessage(Command.CommandType.HELP);
         return false;
     }
 }

@@ -19,7 +19,8 @@ public abstract class Command {
         TODO,
         DEADLINE,
         EVENT,
-        HELP
+        HELP,
+        FIND
     }
     public Command(){
         this(null, null);
