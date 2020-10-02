@@ -3,6 +3,7 @@ package duke.storage;
 import duke.common.Default;
 import duke.common.Messages;
 import duke.data.TaskList;
+import duke.exception.Exceptions;
 import duke.ui.TextUi;
 
 
@@ -93,6 +94,8 @@ public class StorageManager {
         } catch (IOException e) {
             // Exception handling
             ui.showCustomError(Messages.ERROR_SAVE_LOAD_LOCAL);
+        }catch (Exceptions ignored){
+
         }
         return taskList;
     }
