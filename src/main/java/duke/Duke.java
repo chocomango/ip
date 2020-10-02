@@ -1,17 +1,10 @@
 package duke;
 
 import duke.command.Command;
-import duke.common.Messages;
 import duke.data.TaskList;
 import duke.parser.Parser;
 import duke.storage.StorageManager;
 import duke.ui.TextUi;
-
-import java.util.Scanner;
-
-import static duke.data.Task.Type.EVENT;
-import static duke.data.Task.Type.TODO;
-import static duke.data.Task.Type.DEADLINE;
 
 public class Duke {
 
@@ -26,7 +19,6 @@ public class Duke {
 
     /**
      * Runs the program
-     *
      */
     private void run(){
         init();

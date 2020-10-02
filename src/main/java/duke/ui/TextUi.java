@@ -1,38 +1,37 @@
 package duke.ui;
 
-
-
 import duke.command.*;
 import duke.common.Messages;
-
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
- * Class that handles user interaction
+ * TextUi that handles user interaction
  */
 public class TextUi {
 
     private final Scanner in;
     private final PrintStream out;
     /**
-     * Create a Ui object
-     *
-     * @param Input stream to read inputs from the user
-     * @param Output stream to print to the user
+     * Create a Ui object with default system streams
      */
     public TextUi() {
         this(System.in, System.out);
     }
-
+    /**
+     * Create a Ui object
+     *
+     * @param in Input stream to read inputs from the user
+     * @param out Output stream to print to the user
+     */
     public TextUi(InputStream in, PrintStream out) {
         this.in = new Scanner(in);
         this.out = out;
     }
 
     /**
-     * Get input from user
+     * Accepts input from user via input stream
      *
      * @return Input from user
      */
@@ -53,15 +52,19 @@ public class TextUi {
     }
 
     /**
-     * Print user customised error
+     * Print different error message based on input
+     * Will be prepended by "Error:"
      *
+     * @param message Specified error message to print
      */
     public void showCustomError(String message) {
         showToUser("Error: "+message);
     }
 
     /**
-     * Print usage help for user
+     * Print help menu for user based on the command type
+     *
+     * @param type To specify which command usage menu to print
      */
     public void showHelpMessage(Command.CommandType type){
         switch(type){
@@ -99,6 +102,8 @@ public class TextUi {
     }
     /**
      * Print messages to user
+     *
+     * @param messages Specify messages to print
      */
     public void showToUser(String... messages){
         for (String message : messages) {
