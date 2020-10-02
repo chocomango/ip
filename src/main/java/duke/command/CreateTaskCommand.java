@@ -1,20 +1,41 @@
 package duke.command;
 
 import duke.common.Messages;
-import duke.data.*;
+
+
+import duke.data.TaskList;
+import duke.data.Task;
+import duke.data.Todo;
+import duke.data.Event;
+import duke.data.Deadline;
 import duke.exception.Exceptions;
 import duke.parser.DateTimeParser;
 import duke.ui.TextUi;
-
 import java.time.LocalDateTime;
 
+
+/**
+ * Create task command
+ */
 public class CreateTaskCommand extends Command{
 
-    //constructor
+    /**
+     * Creates a new create task command with task type and arguments
+     */
     public CreateTaskCommand(CommandType type, String arguments){
         super(type, arguments);
     }
 
+    /**
+     * Executes the create task command
+     * - Determine the task type
+     * - Create task object
+     * - Add task to tasklist
+     *
+     * @param tasks All the tasks added in this program instance
+     * @param ui UI that handles user interaction
+     * @return false to keep the program running
+     */
     public boolean execute(TaskList tasks, TextUi ui) {
         try {
             switch (type) {
@@ -40,6 +61,12 @@ public class CreateTaskCommand extends Command{
         return false;
     }
 
+    /**
+     * Create and return a TODO task after verifying its description
+     *
+     * @param description All the tasks added in this program instance
+     * @param ui UI that handles user interaction
+     */
     private static Todo createTodo(String description, TextUi ui) throws Exceptions {
         if (description.isEmpty()) {
             ui.showCustomError(Messages.ERROR_INVALID_USAGE);
@@ -49,6 +76,14 @@ public class CreateTaskCommand extends Command{
         return new Todo(description);
     }
 
+    /**
+     * Create and return a DEADLINE task after verifying its arguments
+     * Arguments
+     * - with deadline specified after the prefix /by
+     *
+     * @param arguments All the tasks added in this program instance
+     * @param ui UI that handles user interaction
+     */
     private static Deadline createDeadline(String arguments, TextUi ui){
         try {
             if (arguments.isEmpty()) {
@@ -78,6 +113,14 @@ public class CreateTaskCommand extends Command{
         }
     }
 
+    /**
+     * Create and return a EVENT task after verifying its arguments
+     * Arguments
+     * - with date specified after the prefix /at
+     *
+     * @param arguments All the tasks added in this program instance
+     * @param ui UI that handles user interaction
+     */
     private static Event createEvent(String arguments, TextUi ui) {
         try {
             if (arguments.isEmpty()) {

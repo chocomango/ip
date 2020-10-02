@@ -4,13 +4,26 @@ import duke.common.Messages;
 import duke.data.TaskList;
 import duke.ui.TextUi;
 
+/**
+ * Delete command
+ */
 public class DeleteCommand extends Command{
 
-    //constructor
+    /**
+     * Creates a new DELETE command with arguments
+     */
     public DeleteCommand(String arguments){
         super(arguments);
     }
 
+    /**
+     * Executes the DELETE command
+     * - Removes the task from task list
+     *
+     * @param tasks All the tasks added in this program instance
+     * @param ui UI that handles user interaction
+     * @return false to keep the program running
+     */
     public boolean execute(TaskList tasks, TextUi ui){
         int index;
         index = checkParameters(tasks, ui);
@@ -20,6 +33,14 @@ public class DeleteCommand extends Command{
         }
         return false;
     }
+
+    /**
+     * Check the parameter (taskID) is valid
+     * - Integer within the range of tasks
+     *
+     * @param tasks All the tasks added in this program instance
+     * @param ui UI that handles user interaction
+     */
     public int checkParameters(TaskList tasks, TextUi ui){
         int index;
         if (tasks.isEmpty()) {

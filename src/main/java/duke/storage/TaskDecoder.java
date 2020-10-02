@@ -7,13 +7,21 @@ import duke.data.TaskList;
 import duke.data.Todo;
 import duke.exception.Exceptions;
 import duke.parser.DateTimeParser;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
+/**
+ * Task decoder to decode data from local file into acceptable data format for the program
+ */
 public class TaskDecoder {
     private static final String PREFIX = "\\|";
+
+    /**
+     * Decodes the local file data into tasks
+     *
+     * @param taskString Single line String about an individual task from the local file
+     * @param taskList Arraylist that contains all the decoded tasks
+     * @throws Exceptions for the possible exceptions parsing the DateTime
+     */
     public static TaskList decodeTask(String taskString, TaskList taskList) throws Exceptions {
         String[] substrings = taskString.split(PREFIX);
         Task.Type taskType = Task.Type.valueOf(substrings[0]);

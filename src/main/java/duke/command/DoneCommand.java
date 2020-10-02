@@ -3,16 +3,28 @@ package duke.command;
 import duke.common.Messages;
 import duke.data.Task;
 import duke.data.TaskList;
-import duke.storage.StorageManager;
 import duke.ui.TextUi;
 
+/**
+ * Done command
+ */
 public class DoneCommand extends Command{
 
-    //constructor
+    /**
+     * Creates a new DONE command with arguments
+     */
     public DoneCommand(String arguments){
         super(arguments);
     }
 
+    /**
+     * Executes the DONE command
+     * - Mark the chosen task as completed
+     *
+     * @param tasks All the tasks added in this program instance
+     * @param ui UI that handles user interaction
+     * @return false to keep the program running
+     */
     public boolean execute(TaskList tasks, TextUi ui){
         int index;
         index = checkParameters(tasks, ui);
@@ -28,6 +40,13 @@ public class DoneCommand extends Command{
         return false;
     }
 
+    /**
+     * Check the parameter (taskID) is valid
+     * - Integer within the range of tasks
+     *
+     * @param tasks All the tasks added in this program instance
+     * @param ui UI that handles user interaction
+     */
     public int checkParameters(TaskList tasks, TextUi ui){
         int index;
         if (tasks.isEmpty()) {

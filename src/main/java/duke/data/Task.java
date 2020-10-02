@@ -1,54 +1,94 @@
 package duke.data;
-
+/**
+ * abstract tasks
+ */
 public abstract class Task {
     protected String description;
     protected boolean isDone;
 
+    /**
+     * List of task types
+     */
     public enum Type {
         TODO,
         DEADLINE,
         EVENT
     }
 
-    //overloaded constructor
+    /**
+     * Creates a new abstract task with the specified description and default value of false for completion status
+     *
+     * @param description Description of task
+     */
     public Task(String description) {
         this(description, false);
     }
 
-    //constructor
+    /**
+     * Creates a new abstract task with the specified description and value for completion status
+     *
+     * @param description Description of task
+     * @param isDone Completion status of task
+     */
     public Task(String description, boolean isDone) {
         setDescription(description);
         setStatus(isDone);
     }
 
-    //returns description of task
+    /**
+     * Returns the description of task
+     *
+     * @return Description of task
+     */
     public String getDescription() {
         return description;
     }
 
-    //update description of task
+    /**
+     * Sets the description of task
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    //returns if the task is done or not
+    /**
+     * Returns the completion status of task
+     *
+     * @return Completion status of task
+     */
     public boolean getStatus() {
         return isDone;
     }
 
-    //update the status of task
+    /**
+     * Sets the completion status of task
+     */
     public void setStatus(boolean done) {
         isDone = done;
     }
 
-    //returns icon for status
+    /**
+     * Returns the relevant icon for tick and cross
+     *
+     * @return encoded icon in String
+     */
     public String getStatusIcon() {
         return (isDone ? "\u2713" : "\u2718");
     }
 
+    /**
+     * Abstract method that returns the task type
+     *
+     * @return Task type
+     */
     public abstract Type getType();
 
-    //returns confirmed status of task
+    /**
+     * Returns a formatted String of the task with icon for printing
+     * E.g. [✓] Buy lunch
+     *
+     * @return formatted String of the task with icon
+     */
     public String toString() {
         return String.format("[%s] %s", getStatusIcon(), getDescription());
     }
