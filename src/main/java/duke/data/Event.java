@@ -1,22 +1,25 @@
 package duke.data;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Event extends Task {
-    protected String at;
+    protected LocalDateTime at;
 
     //constructor
-    public Event(String description, String at) {
+    public Event(String description, LocalDateTime at) {
         this(description, false, at);
     }
-    public Event(String description, boolean isDone, String at) {
+    public Event(String description, boolean isDone, LocalDateTime at) {
         super(description, isDone);
         setAt(at);
     }
 
-    public String getAt() {
+    public LocalDateTime getAt() {
         return at;
     }
 
-    public void setAt(String at) {
+    public void setAt(LocalDateTime at) {
         this.at = at;
     }
 
@@ -27,6 +30,7 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return String.format("[E]%s (at: %s)", super.toString(), at);
+        String rawDate = at.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm"));
+        return String.format("[E]%s (at: %s)", super.toString(), rawDate);
     }
 }
