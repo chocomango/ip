@@ -1,6 +1,7 @@
 package duke.command;
 
 import duke.data.TaskList;
+import duke.exception.Exceptions;
 import duke.storage.StorageManager;
 import duke.ui.TextUi;
 
@@ -52,6 +53,5 @@ public abstract class Command {
         this.arguments = arguments;
     }
 
-    //public abstract boolean isExit();
     public abstract boolean execute(TaskList tasks, TextUi ui);
 }

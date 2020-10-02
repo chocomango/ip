@@ -1,7 +1,5 @@
 package duke.common;
 
-import duke.command.Command;
-
 /**
  * Container for user visible messages.
  */
@@ -33,8 +31,8 @@ public class Messages {
     public static final String ERROR_INVALID_USAGE = "Invalid usage of command.";
     public static final String ERROR_OUT_OF_RANGE_INPUT = "No such data. Narrow down your range.";
     public static final String ERROR_TASK_ALREADY_DONE = "This task is already done";
-
-
+    public static final String ERROR_INVALID_DATA_INPUT = "Invalid data input,";
+  
     //Usage
     public static final String[] USAGE = {
             "LIST usage: ...",

@@ -5,11 +5,16 @@ import duke.data.Event;
 import duke.data.Task;
 import duke.data.TaskList;
 import duke.data.Todo;
+import duke.exception.Exceptions;
+import duke.parser.DateTimeParser;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 public class TaskDecoder {
     private static final String PREFIX = "\\|";
-    public static TaskList decodeTask(String taskString, TaskList taskList) {
+    public static TaskList decodeTask(String taskString, TaskList taskList) throws Exceptions {
         String[] substrings = taskString.split(PREFIX);
         Task.Type taskType = Task.Type.valueOf(substrings[0]);
         String description = substrings[2].trim();
@@ -20,12 +25,16 @@ public class TaskDecoder {
                 taskList.get(taskList.size()-1).setStatus(status);
                 break;
             case DEADLINE:
-                String by = substrings[3];
+                String deadlineData = substrings[3];
+                String deadline = deadlineData.replace("T", " ").replace(":", "");
+                LocalDateTime by = DateTimeParser.parseDateTime(deadline);
                 taskList.add(new Deadline(description, by));
                 taskList.get(taskList.size()-1).setStatus(status);
                 break;
             case EVENT:
-                String at = substrings[3];
+                String eventData = substrings[3];
+                String timing = eventData.replace("T", " ").replace(":", "");
+                LocalDateTime at = DateTimeParser.parseDateTime(timing);
                 taskList.add(new Event(description, at));
                 taskList.get(taskList.size()-1).setStatus(status);
                 break;
