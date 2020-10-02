@@ -39,4 +39,8 @@ public class TaskList {
     public int indexOf(Task task) {
         return taskList.indexOf(task);
     }
+
+    public boolean isEmpty() {
+        return taskList.isEmpty();
+    }
 }

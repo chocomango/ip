@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.common.Messages;
 import duke.data.Task;
 import duke.data.TaskList;
 import duke.storage.StorageManager;
@@ -12,10 +13,9 @@ public class ClearCommand extends Command{
         super();
     }
 
-    public boolean execute(TaskList tasks, TextUi ui, StorageManager storage){
+    public boolean execute(TaskList tasks, TextUi ui){
         tasks.clear();
-        System.out.println("Memory cleared.");
-        storage.save(tasks);
+        ui.showToUser(Messages.MESSAGE_CLEAR_MEMORY);
         return false;
     }
 }

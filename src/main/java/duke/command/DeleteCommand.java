@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.common.Messages;
 import duke.data.TaskList;
 import duke.storage.StorageManager;
 import duke.ui.TextUi;
@@ -11,33 +12,38 @@ public class DeleteCommand extends Command{
         super(arguments);
     }
 
-    public boolean execute(TaskList tasks, TextUi ui, StorageManager storage){
-        if (tasks.size() == 0) {
-            System.out.println("You have yet to say anything.");
-            return false;
+    public boolean execute(TaskList tasks, TextUi ui){
+        int index;
+        index = checkParameters(tasks, ui);
+        if (index != 0) {
+            ui.showToUser("Okay. " + tasks.get(index-1).toString() + " deleted.");
+            tasks.remove(tasks.get(index-1));
+        }
+        return false;
+    }
+    public int checkParameters(TaskList tasks, TextUi ui){
+        int index;
+        if (tasks.isEmpty()) {
+            ui.showCustomError(Messages.ERROR_EMPTY_LIST);
+            return 0;
         }
         if (arguments.isEmpty()) {
-            System.out.println("Which one? Try again.");
-            return false;
+            ui.showCustomError(Messages.ERROR_INVALID_USAGE);
+            ui.showHelpMessage(CommandType.DELETE);
+            return 0;
         }
 
-        int index;
         try {
             index = Integer.parseInt(arguments);
         } catch (NumberFormatException nfe) {
-            System.out.println("You chose the wrong one. Try again.");
-            return false;
+            ui.showCustomError(Messages.ERROR_INVALID_USAGE);
+            return 0;
         }
 
         if (index < 1 || index > tasks.size()) {
-            System.out.println("You never said this.");
-            return false;
+            ui.showCustomError(Messages.ERROR_OUT_OF_RANGE_INPUT);
+            return 0;
         }
-
-        System.out.println("Okay. " + ""
-                + tasks.get(index-1).toString() + " deleted.");
-        tasks.remove(tasks.get(index-1));
-        storage.save(tasks);
-        return false;
+        return index;
     }
 }

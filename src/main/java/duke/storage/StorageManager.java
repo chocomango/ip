@@ -1,6 +1,9 @@
 package duke.storage;
 
+import duke.common.Default;
+import duke.common.Messages;
 import duke.data.TaskList;
+import duke.ui.TextUi;
 
 
 import java.io.BufferedReader;
@@ -13,8 +16,8 @@ import java.util.List;
 
 public class StorageManager {
     private static final String DEFAULT_DIR_PATH = System.getProperty("user.dir") + File.separator
-                                    + "data" + File.separator;
-    private static final String DEFAULT_FILE_NAME = "duke.txt";
+                                    + Default.DEFAULT_LOCAL_DIR + File.separator;
+    private static final String DEFAULT_FILE_NAME = Default.DEFAULT_LOCAL_FILENAME;
 
     private String directoryPath;
     private String filePath;
@@ -40,38 +43,43 @@ public class StorageManager {
     private boolean createIfNotExist() {
         File directory = new File(directoryPath);
         boolean isDirectoryCreated = directory.exists();
+        //Create directory if it does not exist
         if (!isDirectoryCreated) {
             isDirectoryCreated = directory.mkdir();
         }
+        //Returns false if unable to create
         if (!isDirectoryCreated) {
-            System.out.println("Something went wrong with the path to my local memory.");
             return false;
         }
         File file = new File(filePath);
         return file.exists();
     }
 
-    public void init() {
-        System.out.println(createIfNotExist()?"Local storage created":"Local storage error");
+    public void init(TextUi ui) {
+        if(createIfNotExist()){
+            ui.showToUser( Messages.MESSAGE_CREATE_LOCAL + filePath);
+        }else{
+            ui.showCustomError(Messages.ERROR_CREATE_LOCAL);
+        }
     }
 
-    public void save(TaskList tasks) {
+    public void save(TaskList tasks, TextUi ui) {
         List<String> encodedTaskList = TaskEncoder.encodeTaskList(tasks);
         try(FileWriter fileWriter = new FileWriter(filePath)) {
             encodedTaskList.forEach(taskString -> {
                 try {
                     fileWriter.write(taskString);
                 } catch (IOException e) {
-                    System.out.println("Something went wrong with my local memory.");
+                    ui.showCustomError(Messages.ERROR_SAVE_LOAD_LOCAL);
                 }
             });
         } catch (IOException e) {
             // Exception handling
-            System.out.println("Something went wrong with my local memory.");
+            ui.showCustomError(Messages.ERROR_SAVE_LOAD_LOCAL);
         }
     }
 
-    public TaskList load() {
+    public TaskList load(TextUi ui) {
         TaskList taskList = new TaskList();
         BufferedReader fileReader;
         try {
@@ -84,7 +92,7 @@ public class StorageManager {
             fileReader.close();
         } catch (IOException e) {
             // Exception handling
-            System.out.println("Something went wrong with my local memory.");
+            ui.showCustomError(Messages.ERROR_SAVE_LOAD_LOCAL);
         }
         return taskList;
     }

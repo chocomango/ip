@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.common.Messages;
 import duke.data.Task;
 import duke.data.TaskList;
 import duke.storage.StorageManager;
@@ -11,16 +12,18 @@ public class ListCommand extends Command {
         super();
     }
 
-    public boolean execute(TaskList tasks, TextUi ui, StorageManager storage){
-        if (tasks.size() == 0) {
-            System.out.println("You have yet to say anything.");
+    public boolean execute(TaskList tasks, TextUi ui){
+        if (tasks.isEmpty()) {
+            ui.showCustomError(Messages.ERROR_EMPTY_LIST);
             return false;
         }
-        System.out.println("Here you go...");
+        ui.showToUser(Messages.MESSAGE_LIST_TASK);
+        String entry;
         for (Task task : tasks.getList()) {
-            System.out.printf("%d. %s%n", tasks.indexOf(task) + 1, task);
+            entry = String.format("%d. %s", tasks.indexOf(task) + 1, task);
+            ui.showToUser(entry);
         }
-        System.out.println("You have " + tasks.size() + " items.");
+        ui.showToUser("You have " + tasks.size() + " items.");
         return false;
     }
 }

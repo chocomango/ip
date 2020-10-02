@@ -9,14 +9,16 @@ public abstract class Command {
     protected String arguments;
 
     public enum CommandType {
+        ALL,
         LIST,
         CLEAR,
+        BYE,
         DONE,
         DELETE,
         TODO,
         DEADLINE,
         EVENT,
-        BYE
+        HELP
     }
     public Command(){
         this(null, null);
@@ -50,5 +52,5 @@ public abstract class Command {
     }
 
     //public abstract boolean isExit();
-    public abstract boolean execute(TaskList tasks, TextUi ui, StorageManager storage);
+    public abstract boolean execute(TaskList tasks, TextUi ui);
 }

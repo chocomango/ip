@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.common.Messages;
 import duke.data.Task;
 import duke.data.TaskList;
 import duke.storage.StorageManager;
@@ -12,39 +13,45 @@ public class DoneCommand extends Command{
         super(arguments);
     }
 
-    public boolean execute(TaskList tasks, TextUi ui, StorageManager storage){
-        if (tasks.size() == 0) {
-            System.out.println("You have yet to say anything.");
-            return false;
+    public boolean execute(TaskList tasks, TextUi ui){
+        int index;
+        index = checkParameters(tasks, ui);
+        if (index != 0) {
+            Task current = tasks.get(index - 1);
+            if (current.getStatus()) {
+                ui.showCustomError(Messages.ERROR_TASK_ALREADY_DONE);
+            } else {
+                current.setStatus(true);
+                ui.showToUser("Okay. " + current.toString() + " completed.");
+            }
+        }
+        return false;
+    }
+
+    public int checkParameters(TaskList tasks, TextUi ui){
+        int index;
+        if (tasks.isEmpty()) {
+            ui.showCustomError(Messages.ERROR_EMPTY_LIST);
+            return 0;
         }
         if (arguments.isEmpty()) {
-            System.out.println("Which one? Try again.");
-            return false;
+            ui.showCustomError(Messages.ERROR_INVALID_USAGE);
+            ui.showHelpMessage(CommandType.DONE);
+            return 0;
         }
 
-        int index;
         try {
             index = Integer.parseInt(arguments);
         } catch (NumberFormatException nfe) {
-            System.out.println("You chose the wrong one. Try again.");
-            return false;
+            ui.showCustomError(Messages.ERROR_INVALID_USAGE);
+            ui.showHelpMessage(CommandType.DONE);
+            return 0;
         }
 
         if (index < 1 || index > tasks.size()) {
-            System.out.println("Can't find that in my memory. Try again.");
-            return false;
+            ui.showCustomError(Messages.ERROR_OUT_OF_RANGE_INPUT);
+            return 0;
         }
-
-        Task current = tasks.get(index-1);
-        if (current.getStatus()) {
-            System.out.println("You did this before already...");
-        } else {
-            current.setStatus(true);
-            System.out.println("Okay. " + ""
-                    + current.toString() + " completed.");
-
-        }
-        storage.save(tasks);
-        return false;
+        return index;
     }
 }

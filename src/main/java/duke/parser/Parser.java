@@ -15,7 +15,7 @@ public class Parser {
 
             return getCommandSubclass(convertedType, arguments);
         }else{
-            return null;
+            return new InvalidCommand();
         }
     }
 
@@ -33,21 +33,24 @@ public class Parser {
     }
     public Command getCommandSubclass(CommandType type, String arguments){
         switch(type) {
-            case LIST:
-                return new ListCommand();
-            case CLEAR:
-                return new ClearCommand();
-            case BYE:
-                return new ByeCommand();
-            case DONE:
-                return new DoneCommand(arguments);
-            case DELETE:
-                return new DeleteCommand(arguments);
-            case TODO:
-            case DEADLINE:
-            case EVENT:
-                return new CreateTaskCommand(type,arguments);
+        case LIST:
+            return new ListCommand();
+        case CLEAR:
+            return new ClearCommand();
+        case BYE:
+            return new ByeCommand();
+        case DONE:
+            return new DoneCommand(arguments);
+        case DELETE:
+            return new DeleteCommand(arguments);
+        case TODO:
+        case DEADLINE:
+        case EVENT:
+            return new CreateTaskCommand(type,arguments);
+        case HELP:
+            return new HelpCommand();
         }
-        return null;
+
+        return new InvalidCommand();
     }
 }

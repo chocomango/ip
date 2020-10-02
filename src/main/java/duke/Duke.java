@@ -24,9 +24,9 @@ public class Duke {
     private static Parser parser = new Parser();
 
     public static void main(String[] args) {
-        storage.init();
-        tasks = storage.load();
-        ui.printWelcomeScreen();
+        ui.showWelcomeScreen();
+        storage.init(ui);
+        tasks = storage.load(ui);
         runInstructions();
     }
 
@@ -37,11 +37,8 @@ public class Duke {
         while (!isExit) {
             input = ui.getUserCommand();
             Command c = parser.parse(input);
-            if (c  == null) {
-                ui.showCustomError("Wrong command. Try again.");
-            }else{
-                isExit = c.execute(tasks, ui, storage);
-            }
+            isExit = c.execute(tasks, ui);
+            storage.save(tasks, ui);
         }
     }
 }
