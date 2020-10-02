@@ -9,11 +9,19 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+/**
+ * Class that handles user interaction
+ */
 public class TextUi {
 
     private final Scanner in;
     private final PrintStream out;
-
+    /**
+     * Create a Ui object
+     *
+     * @param Input stream to read inputs from the user
+     * @param Output stream to print to the user
+     */
     public TextUi() {
         this(System.in, System.out);
     }
@@ -23,6 +31,11 @@ public class TextUi {
         this.out = out;
     }
 
+    /**
+     * Get input from user
+     *
+     * @return Input from user
+     */
     public String getUserCommand() {
         showToUser(Messages.MESSAGE_PROMPT_INPUT);
         String input = in.nextLine().trim();
@@ -32,13 +45,24 @@ public class TextUi {
         return input;
     }
 
+    /**
+     * Prints welcome message
+     */
     public void showWelcomeScreen() {
         showToUser(Messages.MESSAGE_WELCOME);
     }
 
+    /**
+     * Print user customised error
+     *
+     */
     public void showCustomError(String message) {
         showToUser("Error: "+message);
     }
+
+    /**
+     * Print usage help for user
+     */
     public void showHelpMessage(Command.CommandType type){
         switch(type){
         case HELP:
@@ -73,6 +97,9 @@ public class TextUi {
             break;
         }
     }
+    /**
+     * Print messages to user
+     */
     public void showToUser(String... messages){
         for (String message : messages) {
             out.println(message);
