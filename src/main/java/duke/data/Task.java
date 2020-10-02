@@ -1,13 +1,14 @@
 package duke.data;
+
 /**
- * abstract tasks
+ * abstract tasks.
  */
 public abstract class Task {
     protected String description;
     protected boolean isDone;
 
     /**
-     * List of task types
+     * List of task types.
      */
     public enum Type {
         TODO,
@@ -16,7 +17,7 @@ public abstract class Task {
     }
 
     /**
-     * Creates a new abstract task with the specified description and default value of false for completion status
+     * Creates a new abstract task with the specified description and default value of false for completion status.
      *
      * @param description Description of task
      */
@@ -25,7 +26,7 @@ public abstract class Task {
     }
 
     /**
-     * Creates a new abstract task with the specified description and value for completion status
+     * Creates a new abstract task with the specified description and value for completion status.
      *
      * @param description Description of task
      * @param isDone Completion status of task
@@ -36,7 +37,7 @@ public abstract class Task {
     }
 
     /**
-     * Returns the description of task
+     * Returns the description of task.
      *
      * @return Description of task
      */
@@ -45,14 +46,14 @@ public abstract class Task {
     }
 
     /**
-     * Sets the description of task
+     * Sets the description of task.
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
     /**
-     * Returns the completion status of task
+     * Returns the completion status of task.
      *
      * @return Completion status of task
      */
@@ -61,14 +62,14 @@ public abstract class Task {
     }
 
     /**
-     * Sets the completion status of task
+     * Sets the completion status of task.
      */
     public void setStatus(boolean done) {
         isDone = done;
     }
 
     /**
-     * Returns the relevant icon for tick and cross
+     * Returns the relevant icon for tick and cross.
      *
      * @return encoded icon in String
      */
@@ -77,7 +78,7 @@ public abstract class Task {
     }
 
     /**
-     * Abstract method that returns the task type
+     * Abstract method that returns the task type.
      *
      * @return Task type
      */

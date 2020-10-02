@@ -6,26 +6,26 @@ import duke.data.TaskList;
 import duke.ui.TextUi;
 
 /**
- * Done command
+ * Done command.
  */
-public class DoneCommand extends Command{
+public class DoneCommand extends Command {
 
     /**
-     * Creates a new DONE command with arguments
+     * Creates a new DONE command with arguments.
      */
-    public DoneCommand(String arguments){
+    public DoneCommand(String arguments) {
         super(arguments);
     }
 
     /**
-     * Executes the DONE command
+     * Executes the DONE command.
      * - Mark the chosen task as completed
      *
      * @param tasks All the tasks added in this program instance
      * @param ui UI that handles user interaction
      * @return false to keep the program running
      */
-    public boolean execute(TaskList tasks, TextUi ui){
+    public boolean execute(TaskList tasks, TextUi ui) {
         int index;
         index = checkParameters(tasks, ui);
         if (index != 0) {
@@ -41,13 +41,13 @@ public class DoneCommand extends Command{
     }
 
     /**
-     * Check the parameter (taskID) is valid
+     * Check the parameter (taskID) is valid.
      * - Integer within the range of tasks
      *
      * @param tasks All the tasks added in this program instance
      * @param ui UI that handles user interaction
      */
-    public int checkParameters(TaskList tasks, TextUi ui){
+    public int checkParameters(TaskList tasks, TextUi ui) {
         int index;
         if (tasks.isEmpty()) {
             ui.showCustomError(Messages.ERROR_EMPTY_LIST);

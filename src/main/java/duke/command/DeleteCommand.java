@@ -5,43 +5,43 @@ import duke.data.TaskList;
 import duke.ui.TextUi;
 
 /**
- * Delete command
+ * Delete command.
  */
-public class DeleteCommand extends Command{
+public class DeleteCommand extends Command {
 
     /**
-     * Creates a new DELETE command with arguments
+     * Creates a new DELETE command with arguments.
      */
-    public DeleteCommand(String arguments){
+    public DeleteCommand(String arguments) {
         super(arguments);
     }
 
     /**
-     * Executes the DELETE command
+     * Executes the DELETE command.
      * - Removes the task from task list
      *
      * @param tasks All the tasks added in this program instance
      * @param ui UI that handles user interaction
      * @return false to keep the program running
      */
-    public boolean execute(TaskList tasks, TextUi ui){
+    public boolean execute(TaskList tasks, TextUi ui) {
         int index;
         index = checkParameters(tasks, ui);
         if (index != 0) {
-            ui.showToUser("Okay. " + tasks.get(index-1).toString() + " deleted.");
-            tasks.remove(tasks.get(index-1));
+            ui.showToUser("Okay. " + tasks.get(index - 1).toString() + " deleted.");
+            tasks.remove(tasks.get(index - 1));
         }
         return false;
     }
 
     /**
-     * Check the parameter (taskID) is valid
+     * Check the parameter (taskID) is valid.
      * - Integer within the range of tasks
      *
      * @param tasks All the tasks added in this program instance
      * @param ui UI that handles user interaction
      */
-    public int checkParameters(TaskList tasks, TextUi ui){
+    public int checkParameters(TaskList tasks, TextUi ui) {
         int index;
         if (tasks.isEmpty()) {
             ui.showCustomError(Messages.ERROR_EMPTY_LIST);

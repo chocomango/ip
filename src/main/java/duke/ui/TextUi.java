@@ -1,26 +1,27 @@
 package duke.ui;
 
-import duke.command.*;
+import duke.command.Command;
 import duke.common.Messages;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
- * TextUi that handles user interaction
+ * TextUi that handles user interaction.
  */
 public class TextUi {
-
     private final Scanner in;
     private final PrintStream out;
+
     /**
-     * Create a Ui object with default system streams
+     * Create a Ui object with default system streams.
      */
     public TextUi() {
         this(System.in, System.out);
     }
+
     /**
-     * Create a Ui object
+     * Create a Ui object.
      *
      * @param in Input stream to read inputs from the user
      * @param out Output stream to print to the user
@@ -31,7 +32,7 @@ public class TextUi {
     }
 
     /**
-     * Accepts input from user via input stream
+     * Accepts input from user via input stream.
      *
      * @return Input from user
      */
@@ -45,29 +46,29 @@ public class TextUi {
     }
 
     /**
-     * Prints welcome message
+     * Prints welcome message.
      */
     public void showWelcomeScreen() {
         showToUser(Messages.MESSAGE_WELCOME);
     }
 
     /**
-     * Print different error message based on input
+     * Print different error message based on input.
      * Will be prepended by "Error:"
      *
      * @param message Specified error message to print
      */
     public void showCustomError(String message) {
-        showToUser("Error: "+message);
+        showToUser("Error: " + message);
     }
 
     /**
-     * Print help menu for user based on the command type
+     * Print help menu for user based on the command type.
      *
      * @param type To specify which command usage menu to print
      */
-    public void showHelpMessage(Command.CommandType type){
-        switch(type){
+    public void showHelpMessage(Command.CommandType type) {
+        switch (type) {
         case HELP:
             showToUser(Messages.USAGE);
             break;
@@ -98,14 +99,17 @@ public class TextUi {
         case FIND:
             showToUser(Messages.USAGE[8]);
             break;
+        default:
+            break;
         }
     }
+
     /**
-     * Print messages to user
+     * Print messages to user.
      *
      * @param messages Specify messages to print
      */
-    public void showToUser(String... messages){
+    public void showToUser(String... messages) {
         for (String message : messages) {
             out.println(message);
         }

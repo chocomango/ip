@@ -18,15 +18,15 @@ public class Duke {
     }
 
     /**
-     * Runs the program
+     * Runs the program.
      */
-    private void run(){
+    private void run() {
         init();
         runInstructions();
     }
 
     /**
-     * Welcome the user and initialise the local storage
+     * Welcome the user and initialise the local storage.
      */
     private void init() {
         ui.showWelcomeScreen();
@@ -35,7 +35,7 @@ public class Duke {
     }
 
     /**
-     * Get the user input and runs the instructions
+     * Get the user input and runs the instructions.
      * Exits when ExitCommand returns "true"
      */
     private static void runInstructions() {

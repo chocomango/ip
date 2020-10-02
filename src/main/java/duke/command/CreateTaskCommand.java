@@ -1,8 +1,6 @@
 package duke.command;
 
 import duke.common.Messages;
-
-
 import duke.data.TaskList;
 import duke.data.Task;
 import duke.data.Todo;
@@ -13,21 +11,20 @@ import duke.parser.DateTimeParser;
 import duke.ui.TextUi;
 import java.time.LocalDateTime;
 
-
 /**
- * Create task command
+ * Create task command.
  */
-public class CreateTaskCommand extends Command{
+public class CreateTaskCommand extends Command {
 
     /**
-     * Creates a new create task command with task type and arguments
+     * Creates a new create task command with task type and arguments.
      */
-    public CreateTaskCommand(CommandType type, String arguments){
+    public CreateTaskCommand(CommandType type, String arguments) {
         super(type, arguments);
     }
 
     /**
-     * Executes the create task command
+     * Executes the create task command.
      * - Determine the task type
      * - Create task object
      * - Add task to tasklist
@@ -39,15 +36,17 @@ public class CreateTaskCommand extends Command{
     public boolean execute(TaskList tasks, TextUi ui) {
         try {
             switch (type) {
-                case DEADLINE:
-                    tasks.add(createDeadline(arguments, ui));
-                    break;
-                case TODO:
-                    tasks.add(createTodo(arguments, ui));
-                    break;
-                case EVENT:
-                    tasks.add(createEvent(arguments, ui));
-                    break;
+            case DEADLINE:
+                tasks.add(createDeadline(arguments, ui));
+                break;
+            case TODO:
+                tasks.add(createTodo(arguments, ui));
+                break;
+            case EVENT:
+                tasks.add(createEvent(arguments, ui));
+                break;
+            default:
+                break;
             }
             Task addedTask = tasks.get(tasks.size() - 1);
             if (addedTask != null) {
@@ -62,7 +61,7 @@ public class CreateTaskCommand extends Command{
     }
 
     /**
-     * Create and return a TODO task after verifying its description
+     * Create and return a TODO task after verifying its description.
      *
      * @param description All the tasks added in this program instance
      * @param ui UI that handles user interaction
@@ -77,7 +76,7 @@ public class CreateTaskCommand extends Command{
     }
 
     /**
-     * Create and return a DEADLINE task after verifying its arguments
+     * Create and return a DEADLINE task after verifying its arguments.
      * Arguments
      * - with deadline specified after the prefix /by
      *
@@ -114,7 +113,7 @@ public class CreateTaskCommand extends Command{
     }
 
     /**
-     * Create and return a EVENT task after verifying its arguments
+     * Create and return a EVENT task after verifying its arguments.
      * Arguments
      * - with date specified after the prefix /at
      *

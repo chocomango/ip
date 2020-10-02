@@ -1,11 +1,12 @@
 package duke.data;
+
 /**
- * to-do tasks
+ * to-do tasks.
  */
 public class Todo extends Task {
 
     /**
-     * Creates a new TODO task with the specified description and default value of false for completion status
+     * Creates a new TODO task with the specified description and default value of false for completion status.
      *
      * @param description Description of task
      */
@@ -14,7 +15,7 @@ public class Todo extends Task {
     }
 
     /**
-     * Creates a new TODO task with the specified description and value for completion status
+     * Creates a new TODO task with the specified description and value for completion status.
      *
      * @param description Description of task
      * @param isDone Completion status of task
@@ -24,17 +25,17 @@ public class Todo extends Task {
     }
 
     /**
-     * Returns Task Type
+     * Returns Task Type.
      *
      * @return Enum list entry corresponding to the Task type TODO
      */
     @Override
-    public Type getType(){
+    public Type getType() {
         return Task.Type.TODO;
     }
 
     /**
-     * Returns a formatted String of the TODO task for printing
+     * Returns a formatted String of the TODO task for printing.
      * E.g. [T] Buy lunch
      *
      * @return formatted String of the task

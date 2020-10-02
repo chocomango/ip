@@ -6,13 +6,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Parser that parses DateTime from String to LocalDateTime object
+ * Parser that parses DateTime from String to LocalDateTime object.
  */
 public class DateTimeParser {
     private static final String DATETIME_FORMAT = "yyyy-MM-dd HHmm";
 
     /**
-     * Parses String into LocalDateTime object
+     * Parses String into LocalDateTime object.
      *
      * @param dateTime String in the DATETIME_FORMAT
      * @return LocalDateTime object based on the String

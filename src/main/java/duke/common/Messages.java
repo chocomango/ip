@@ -5,22 +5,22 @@ package duke.common;
  */
 public class Messages {
     /**
-     * General messages
+     * General messages.
      */
     public static final String NEWLINE =  System.lineSeparator();
-    public static final String MESSAGE_WELCOME =  "   ....,       ,...."+NEWLINE+""
-            +" .' ,,, '.   .' ,,, '."+NEWLINE+""
-            +"  .`   `.     .`   `."+NEWLINE+""
-            +" : ..... :   : ..... :"+NEWLINE+""
-            +" :`~'-'-`:   :`-'-'~`:"+NEWLINE+""
-            +"  `.~-`.'     `.~`'.'"+NEWLINE+""
-            +"    ```   ___   ```"+NEWLINE+""
-            +"        ( . . )"+NEWLINE+""+NEWLINE+""
-            +"         .._.."+NEWLINE+""
-            +"       .'     '."+NEWLINE+""
-            +"      `.~~~~~~~.`"+NEWLINE+""
-            +"        `-...-`"+NEWLINE+"";
-    public static final String MESSAGE_PROMPT_INPUT = ""+NEWLINE+"What do you want?";
+    public static final String MESSAGE_WELCOME =  "   ....,       ,...." + NEWLINE
+            + " .' ,,, '.   .' ,,, '." + NEWLINE
+            + "  .`   `.     .`   `." + NEWLINE
+            + " : ..... :   : ..... :" + NEWLINE
+            + " :`~'-'-`:   :`-'-'~`:" + NEWLINE
+            + "  `.~-`.'     `.~`'.'" + NEWLINE
+            + "    ```   ___   ```" + NEWLINE
+            + "        ( . . )" +   NEWLINE +  NEWLINE
+            + "         .._.." + NEWLINE
+            + "       .'     '." + NEWLINE
+            + "      `.~~~~~~~.`" + NEWLINE
+            + "        `-...-`" + NEWLINE;
+    public static final String MESSAGE_PROMPT_INPUT = NEWLINE + "What do you want?";
     public static final String MESSAGE_CREATE_LOCAL = "Memory space at ";
     public static final String MESSAGE_GOODBYE = "Until next time...";
     public static final String MESSAGE_CLEAR_MEMORY = "Memory cleared.";
@@ -28,7 +28,7 @@ public class Messages {
     public static final String MESSAGE_SEARCH_HEADER = "Here are the matching tasks in your list:";
 
     /**
-     * Error messages
+     * Error messages.
      */
     public static final String ERROR_NOTHING_TO_CLEAR = "There nothing to clear.";
     public static final String ERROR_SAVE_LOAD_LOCAL = "Something went wrong with my local memory.";
@@ -40,17 +40,35 @@ public class Messages {
     public static final String ERROR_INVALID_COMMAND = "Invalid command. Try \"help\" for more information.";
 
     /**
-     * Usage messages
+     * Usage messages.
      */
-    public static final String[] USAGE = {
-            NEWLINE+"List all tasks."+NEWLINE+"Usage: list",
-            NEWLINE+"Clear all tasks."+NEWLINE+"Usage: clear",
-            NEWLINE+"Exit the program."+NEWLINE+"Usage: bye",
-            NEWLINE+"Mark task as done."+NEWLINE+"Usage: done <task_number>",
-            NEWLINE+"Delete a task."+NEWLINE+"Usage: delete <task_number>",
-            NEWLINE+ "Add a todo task to the list."+NEWLINE+"Usage: todo <task_description>",
-            NEWLINE+"Add a deadline task to the list."+NEWLINE+"Usage: deadline <task_description> /by <date_time>"+NEWLINE+ "Supported format for date_time: YYYY-MM-DD HHMM",
-            NEWLINE+"Add an event task to the list.."+NEWLINE+"Usage: event <task_description> /at <date_time>"+NEWLINE+ "Supported format for date_time: YYYY-MM-DD HHMM",
-            NEWLINE+"Search for specific task that contains the search term.find"+NEWLINE+"Usage: find <search_term>"
+    public static final String[] USAGE = { NEWLINE + "List all tasks."
+                                           + NEWLINE + "Usage: list",
+
+                                           NEWLINE + "Clear all tasks."
+                                           + NEWLINE + "Usage: clear",
+
+                                           NEWLINE + "Exit the program."
+                                           + NEWLINE + "Usage: bye",
+
+                                           NEWLINE + "Mark task as done."
+                                           + NEWLINE + "Usage: done <task_number>",
+
+                                           NEWLINE + "Delete a task."
+                                           + NEWLINE + "Usage: delete <task_number>",
+
+                                           NEWLINE +  "Add a todo task to the list."
+                                           + NEWLINE + "Usage: todo <task_description>",
+
+                                           NEWLINE + "Add a deadline task to the list."
+                                           + NEWLINE + "Usage: deadline <task_description> /by <date_time>"
+                                           + NEWLINE +  "Supported format for date_time: YYYY-MM-DD HHMM",
+
+                                           NEWLINE + "Add an event task to the list.."
+                                           + NEWLINE + "Usage: event <task_description> /at <date_time>"
+                                           + NEWLINE +  "Supported format for date_time: YYYY-MM-DD HHMM",
+
+                                           NEWLINE + "Search for specific task that contains the search term.find"
+                                           + NEWLINE + "Usage: find <search_term>"
     };
 }

@@ -13,12 +13,12 @@ import duke.command.ListCommand;
 import duke.command.Command.CommandType;
 
 /**
- * Parser that parses user inputs into executable commands
+ * Parser that parses user inputs into executable commands.
  */
 public class Parser {
 
     /**
-     * Parses the user input and determine the command type
+     * Parses the user input and determine the command type.
      *
      * @param input User input
      */
@@ -27,34 +27,35 @@ public class Parser {
         String[] splits = substrings.length == 2 ? substrings : new String[]{substrings[0], ""};
         String type = splits[0].toUpperCase();
         String arguments = splits[1];
-        if(checkValidCommand(type, arguments)){
+        if (checkValidCommand(type, arguments)) {
             CommandType convertedType = CommandType.valueOf(splits[0].toUpperCase());
 
             return getCommandSubclass(convertedType, arguments);
-        }else{
+        } else {
             return new InvalidCommand();
         }
     }
+
     /**
-     * Check if a command valid
+     * Check if a command valid.
      *
      * @param type The first substring of the user input - Command type
      * @param arguments The rest of the user input - Arguments
      * @return True if command is valid
      */
-    public boolean checkValidCommand(String type, String arguments){
+    public boolean checkValidCommand(String type, String arguments) {
         return isValidCommandType(type);
     }
 
     /**
-     * Check if the command type is part of the list of valid command types
+     * Check if the command type is part of the list of valid command types.
      *
      * @param type The first substring of the user input - Command type
      * @return True if command type exists in the enum list
      */
-    public boolean isValidCommandType(String type){
-        for (CommandType TYPE : CommandType.values()) {
-            if (TYPE.name().equals(type)) {
+    public boolean isValidCommandType(String type) {
+        for (CommandType commandType : CommandType.values()) {
+            if (commandType.name().equals(type)) {
                 return true;
             }
         }
@@ -62,14 +63,14 @@ public class Parser {
     }
 
     /**
-     * Determine and craft the command object to return based on command Type
+     * Determine and craft the command object to return based on command Type.
      *
      * @param type The first substring of the user input - Command type
      * @param arguments The rest of the user input - Arguments
      * @return Specified Command object
      */
-    public Command getCommandSubclass(CommandType type, String arguments){
-        switch(type) {
+    public Command getCommandSubclass(CommandType type, String arguments) {
+        switch (type) {
         case LIST:
             return new ListCommand();
         case CLEAR:
@@ -88,8 +89,8 @@ public class Parser {
             return new HelpCommand();
         case FIND:
             return new FindCommand(arguments);
+        default:
+            return new InvalidCommand();
         }
-
-        return new InvalidCommand();
     }
 }

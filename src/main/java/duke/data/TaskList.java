@@ -1,13 +1,16 @@
 package duke.data;
 
 import java.util.ArrayList;
+
 /**
- * TaskList that contains all the added tasks
+ * TaskList that contains all the added tasks.
  */
 public class TaskList {
     private ArrayList<Task> taskList = new ArrayList<>();
 
-    public TaskList() { }
+    public TaskList() {
+
+    }
 
     public TaskList(ArrayList<Task> taskList) {
         this.taskList = taskList;

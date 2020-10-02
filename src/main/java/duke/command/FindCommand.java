@@ -6,29 +6,29 @@ import duke.data.TaskList;
 import duke.ui.TextUi;
 
 /**
- * Find command
+ * Find command.
  */
-public class FindCommand extends Command{
+public class FindCommand extends Command {
 
     /**
-     * Creates a new FIND command with arguments
+     * Creates a new FIND command with arguments.
      */
-    public FindCommand(String arguments){
+    public FindCommand(String arguments) {
         super(arguments);
     }
 
     /**
-     * Executes the FIND command
+     * Executes the FIND command.
      * - Find all tasks with description that matches the search term
      *
      * @param tasks All the tasks added in this program instance
      * @param ui UI that handles user interaction
      * @return false to keep the program running
      */
-    public boolean execute(TaskList tasks, TextUi ui){
-        if(tasks.isEmpty()){
+    public boolean execute(TaskList tasks, TextUi ui) {
+        if (tasks.isEmpty()) {
             ui.showCustomError(Messages.ERROR_EMPTY_LIST);
-        }else{
+        } else {
             String searchTerm = arguments.trim();
             if (searchTerm.equals("")) {
                 ui.showCustomError(Messages.ERROR_INVALID_USAGE);
@@ -39,7 +39,7 @@ public class FindCommand extends Command{
             StringBuilder results = new StringBuilder();
             for (Task task : tasks.getList()) {
                 if (task.getDescription().toLowerCase().contains(searchTerm.toLowerCase())) {
-                    results.append(String.format("\t%d. (%d) %s%n", index++, tasks.indexOf(task)+1, task));
+                    results.append(String.format("\t%d. (%d) %s%n", index++, tasks.indexOf(task) + 1, task));
                 }
             }
             printSearchResults(results.toString(), ui);
@@ -48,7 +48,7 @@ public class FindCommand extends Command{
     }
 
     /**
-     * Prints the outcome of FIND command
+     * Prints the outcome of FIND command.
      * - Print the Header followed by all the matching tasks
      *   E.g. find buy
      *        Here are the matching tasks in your list:
@@ -61,8 +61,8 @@ public class FindCommand extends Command{
      * @param results All the tasks that matched the search term
      * @param ui UI that handles user interaction
      */
-    private void printSearchResults(String results, TextUi ui){
-        if(!results.equals("")){
+    private void printSearchResults(String results, TextUi ui) {
+        if (!results.equals("")) {
             ui.showToUser(Messages.MESSAGE_SEARCH_HEADER);
             ui.showToUser(results);
         }
