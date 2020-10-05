@@ -120,8 +120,9 @@ public class StorageManager {
             }
             fileReader.close();
         } catch (IOException ignored) {
+            ui.showCustomError(Messages.ERROR_SAVE_LOAD_LOCAL);
         } catch (Exceptions ignored) {
-
+            ui.showCustomError(Messages.ERROR_DATE_TIME_PARSE);
         }
         return taskList;
     }

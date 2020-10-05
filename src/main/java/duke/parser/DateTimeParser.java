@@ -22,9 +22,10 @@ public class DateTimeParser {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DATETIME_FORMAT);
         try {
             return LocalDateTime.parse(dateTime, dateTimeFormatter);
-        } catch (DateTimeException ignored) {
+        } catch (DateTimeException e) {
+            throw new Exceptions(e.getMessage());
         }
-        throw new Exceptions("Error: Parse DateTime fail");
+
     }
 
 }

@@ -38,7 +38,7 @@ public class Messages {
     public static final String ERROR_TASK_ALREADY_DONE = "This task is already done";
     public static final String ERROR_INVALID_DATA_INPUT = "Invalid data input,";
     public static final String ERROR_INVALID_COMMAND = "Invalid command. Try \"help\" for more information.";
-
+    public static final String ERROR_DATE_TIME_PARSE = "Invalid Date Time format. Try \"help\" for more information.";
     /**
      * Usage messages.
      */
