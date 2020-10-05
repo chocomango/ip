@@ -6,18 +6,40 @@
               .`   `.     .`   `.
              : ..... :   : ..... :
              :`~'-'-`:   :`-'-'~`:
-              `.~-`.'     `.~`'.'             ___  __     __      __   __    
-                ```   ___   ```        /\      |  |__) | |__)    |  \ /  \ |  | |\ |  
-                    ( . . )           /~~\     |  |  \ | |       |__/ \__/ |/\| | \|
+              `.~-`.'     `.~`'.'                              ___  __     __      __   __    
+                ```   ___   ```                         /\      |  |__) | |__)    |  \ /  \ |  | |\ |  
+                    ( . . )                            /~~\     |  |  \ | |       |__/ \__/ |/\| | \|
 
-                     .._..                 ___        __   __                         ___ 
-                   .'     '.          |\/| |__   |\/| /  \ |__) \ /    |     /\  |\ | |__  
-                  `.~~~~~~~.`         |  | |___  |  | \__/ |  \  |     |___ /~~\ | \| |___   
+                     .._..                                   ___        __   __                         ___ 
+                   .'     '.                           |\/| |__   |\/| /  \ |__) \ /    |     /\  |\ | |__  
+                  `.~~~~~~~.`                          |  | |___  |  | \__/ |  \  |     |___ /~~\ | \| |___   
                     `-...-`
                                                   
                
 ```
-## Setting up
+## Table of Content
+1. [Memory Lane](#memory-lane)  
+1. [Setting up](#setting-up) 
+1. [Features](#features)
+1. [Usage](#usage)
+    1. [`list` - List all tasks](#list---list-all-tasks)
+    1. [`find` - Search for specific task that contains the search term](#find---search-for-specific-task-that-contains-the-search-term)
+    1. [`todo` - Add a `todo` task to the list](#todo---add-a-todo-task-to-the-list)
+    1. [`event` - Add an `event` task to the list](#event---add-an-event-task-to-the-list)
+    1. [`deadline` - Add a `deadline` task to the list](#deadline---add-a-deadline-task-to-the-list)
+    1. [`done` - Mark task as done](#done---mark-task-as-done)
+    1. [`delete` - Delete a task](#delete---delete-a-task)
+    1. [`clear` - Clear the list](#clear---clear-the-list)
+    1. [`help` - Print help menu](#help---print-help-menu)
+    1. [`bye` - Exit the program](#bye---exit-the-program)
+1. [Command Summary](#command-summary)
+<br/><br/><br/>
+## Memory Lane 
+A simple task tracker that helps you to remember all that things to do that you chose to forget.
+
+Your second brain.
+<br/><br/><br/>
+## Setting up 
 Prerequisites: JDK 11
 1. Download `MemoryLane.jar` from [here](https://github.com/chocomango/ip/releases/download/v0.2/MemoryLane.jar).
 1. Move the jar file into an empty folder.
@@ -32,19 +54,17 @@ Prerequisites: JDK 11
 1. Type in `java -Dfile.encoding=UTF-8 -jar MemoryLane.jar` to run the program.
 
 
-## Memory Lane
-A simple task tracker that helps you to remember all that things to do that you chose to forget.
-
-Your second brain.
-## Features 
+<br/><br/><br/>
+## Features  
 * Stores different types of task.
 * Keep track of status of each task.
 * Search for a specific task.
 * Delete tasks that deemed useless.
 * Save all the tasks into local memory.
-* Load tasks from local memory. 
-## Usage
-### `list` - List all tasks
+* Load tasks from local memory.
+<br/><br/><br/> 
+## Usage 
+### `list` - List all tasks 
 This command prints the list of tasks added by user and loaded from local memory. 
 
 Information in outcome:
@@ -57,7 +77,7 @@ Information in outcome:
 - Description of task - Text after the square brackets.
 - Date and time of task* -  In the round brackets .
 
-*Only for `Events` and `Deadlines`
+Only for `Events`* and `Deadlines`*
 
 Syntax: `list`  
 
@@ -75,7 +95,8 @@ Here you go...
 You have 6 items.
 ```
 
-### `find` - Search for specific task that contains the search term
+<br/><br/><br/>
+### `find` - Search for specific task that contains the search term 
 This command searches for all tasks that matches with the search term.
 
 Syntax: `find <search_term>`  
@@ -94,8 +115,8 @@ Here are the matching tasks in your list:
 	1. (2) [E][✘] family dinner (at: Oct 10 2020 18:30)
 	2. (4) [E][✘] dinner with friends (at: Oct 15 2020 19:00)
 ```
-
-### `todo` - Add a `todo` task to the list
+<br/><br/><br/>
+### `todo` - Add a `todo` task to the list 
 This command creates a new entry of todo task.
 
 Syntax: `todo <task_description>` 
@@ -110,8 +131,8 @@ Expected outcome:
 New memory entry: [T][✘] buy groceries 
 You have 6 items.
 ```
-
-### `event` - Add an `event` task to the list
+<br/><br/><br/>
+### `event` - Add an `event` task to the list 
 This command creates a new entry of event.
 
 Syntax: `event <task_description> /at <date_time>`  
@@ -129,7 +150,9 @@ Expected outcome:
 New memory entry: [E][✘] family dinner (at: Oct 10 2020 18:30)
 You have 7 items.
 ```
-### `deadline` - Add a `deadline` task to the list
+
+<br/><br/><br/>
+### `deadline` - Add a `deadline` task to the list 
 This command creates a new entry of deadline
 
 Syntax: `deadline <task_description> /by <date_time>`  
@@ -147,7 +170,9 @@ Expected outcome:
 New memory entry: [D][✘] submit assignment (by: Sep 26 2020 23:59)
 You have 7 items.
 ```
-### `done` - Mark task as done
+
+<br/><br/><br/>
+### `done` - Mark task as done 
 This command marks a task as completed.
 
 Syntax: `done <task_number>`
@@ -162,7 +187,8 @@ Expected outcome:
 Okay. [E][✓] dinner with friends (at: Oct 15 2020 19:00) completed.
 ```
 
-### `delete` - Delete a task
+<br/><br/><br/>
+### `delete` - Delete a task 
 This command removes a task from the list.
 
 Syntax: `delete <task_number>  `
@@ -176,7 +202,9 @@ Expected outcome:
 ```
 Okay. [T][✘] buy groceries  deleted.
 ```
-### `clear` - Clear the list
+
+<br/><br/><br/>
+### `clear` - Clear the list 
 This command removes all task from the list.
 
 Syntax: `clear`
@@ -189,6 +217,7 @@ Expected outcome:
 Memory cleared.
 ```
 
+<br/><br/><br/>
 ### `help` - Print help menu
 This command prints the help menu.
 
@@ -229,7 +258,8 @@ Usage: find <search_term>
 
 ```
 
-### `bye` - Exit the program
+<br/><br/><br/>
+### `bye` - Exit the program 
 This command exits the program
 
 Syntax: `bye`  
@@ -242,18 +272,6 @@ Until next time...
 
 Process finished with exit code 0
 ```
-## Command Summary
-| **Action** | **Description** | **Syntax** |
-| --- | --- | --- |
-| **list** | List all tasks. | `list` |
-| **find** | Search for specific task that contains the search term. | `find <search_term>` |
-| **todo** | Add a `todo` task to the list. | `todo <task_description>` |
-| **event** | Add an `event` task to the list. | `event <task_description> /at <date_time>` |
-| **deadline** | Add a `deadline` task to the list. | `deadline <task_description> /by <date_time>` |
-| **done** | Mark task as done. | `done <task_number>` |
-| **delete** | Delete a task. | `delete <task_number>` |
-| **clear** | Clear the list. | `clear` |
-| **help** | Print help menu. | `help` |
-| **bye** | Exit the program. | `bye` |
-
-
+<br/><br/><br/>
+## Command Summary 
+![Command Summary](https://i.imgur.com/PXrtlfK.png)

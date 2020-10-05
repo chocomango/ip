@@ -33,10 +33,12 @@
     1. [`help` - Print help menu](#help---print-help-menu)
     1. [`bye` - Exit the program](#bye---exit-the-program)
 1. [Command Summary](#command-summary)
+<br/><br/><br/>
 ## Memory Lane 
 A simple task tracker that helps you to remember all that things to do that you chose to forget.
 
 Your second brain.
+<br/><br/><br/>
 ## Setting up 
 Prerequisites: JDK 11
 1. Download `MemoryLane.jar` from [here](https://github.com/chocomango/ip/releases/download/v0.2/MemoryLane.jar).
@@ -52,14 +54,15 @@ Prerequisites: JDK 11
 1. Type in `java -Dfile.encoding=UTF-8 -jar MemoryLane.jar` to run the program.
 
 
-
+<br/><br/><br/>
 ## Features  
 * Stores different types of task.
 * Keep track of status of each task.
 * Search for a specific task.
 * Delete tasks that deemed useless.
 * Save all the tasks into local memory.
-* Load tasks from local memory. 
+* Load tasks from local memory.
+<br/><br/><br/> 
 ## Usage 
 ### `list` - List all tasks 
 This command prints the list of tasks added by user and loaded from local memory. 
@@ -74,7 +77,7 @@ Information in outcome:
 - Description of task - Text after the square brackets.
 - Date and time of task* -  In the round brackets .
 
-*Only for `Events` and `Deadlines`
+Only for `Events`* and `Deadlines`*
 
 Syntax: `list`  
 
@@ -92,6 +95,7 @@ Here you go...
 You have 6 items.
 ```
 
+<br/><br/><br/>
 ### `find` - Search for specific task that contains the search term 
 This command searches for all tasks that matches with the search term.
 
@@ -111,7 +115,7 @@ Here are the matching tasks in your list:
 	1. (2) [E][✘] family dinner (at: Oct 10 2020 18:30)
 	2. (4) [E][✘] dinner with friends (at: Oct 15 2020 19:00)
 ```
-
+<br/><br/><br/>
 ### `todo` - Add a `todo` task to the list 
 This command creates a new entry of todo task.
 
@@ -127,7 +131,7 @@ Expected outcome:
 New memory entry: [T][✘] buy groceries 
 You have 6 items.
 ```
-
+<br/><br/><br/>
 ### `event` - Add an `event` task to the list 
 This command creates a new entry of event.
 
@@ -146,6 +150,8 @@ Expected outcome:
 New memory entry: [E][✘] family dinner (at: Oct 10 2020 18:30)
 You have 7 items.
 ```
+
+<br/><br/><br/>
 ### `deadline` - Add a `deadline` task to the list 
 This command creates a new entry of deadline
 
@@ -164,6 +170,8 @@ Expected outcome:
 New memory entry: [D][✘] submit assignment (by: Sep 26 2020 23:59)
 You have 7 items.
 ```
+
+<br/><br/><br/>
 ### `done` - Mark task as done 
 This command marks a task as completed.
 
@@ -179,6 +187,7 @@ Expected outcome:
 Okay. [E][✓] dinner with friends (at: Oct 15 2020 19:00) completed.
 ```
 
+<br/><br/><br/>
 ### `delete` - Delete a task 
 This command removes a task from the list.
 
@@ -193,6 +202,8 @@ Expected outcome:
 ```
 Okay. [T][✘] buy groceries  deleted.
 ```
+
+<br/><br/><br/>
 ### `clear` - Clear the list 
 This command removes all task from the list.
 
@@ -206,6 +217,7 @@ Expected outcome:
 Memory cleared.
 ```
 
+<br/><br/><br/>
 ### `help` - Print help menu
 This command prints the help menu.
 
@@ -246,6 +258,7 @@ Usage: find <search_term>
 
 ```
 
+<br/><br/><br/>
 ### `bye` - Exit the program 
 This command exits the program
 
@@ -259,18 +272,6 @@ Until next time...
 
 Process finished with exit code 0
 ```
+<br/><br/><br/>
 ## Command Summary 
-| **Action** | **Description** | **Syntax** |
-| --- | --- | --- |
-| **list** | List all tasks. | `list` |
-| **find** | Search for specific task that contains the search term. | `find <search_term>` |
-| **todo** | Add a `todo` task to the list. | `todo <task_description>` |
-| **event** | Add an `event` task to the list. | `event <task_description> /at <date_time>` |
-| **deadline** | Add a `deadline` task to the list. | `deadline <task_description> /by <date_time>` |
-| **done** | Mark task as done. | `done <task_number>` |
-| **delete** | Delete a task. | `delete <task_number>` |
-| **clear** | Clear the list. | `clear` |
-| **help** | Print help menu. | `help` |
-| **bye** | Exit the program. | `bye` |
-
-
+![Command Summary](https://i.imgur.com/PXrtlfK.png)
